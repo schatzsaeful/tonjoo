@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:tonjoo/presentation/common/common_widgets.dart';
 
 import '../../../app_translation.dart';
