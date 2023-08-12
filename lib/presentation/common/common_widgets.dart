@@ -20,17 +20,7 @@ class CommonWidget {
   static Container horizontalBigDivider = Container(
       width: double.infinity,
       height: 1,
-      color: CommonColor.purple80);
-
-  static Container horizontalBlackBigDivider = Container(
-      width: double.infinity,
-      height: 1,
-      color: CommonColor.blackPdf.withOpacity(0.5));
-
-  static Container verticalBlackBigDivider = Container(
-      width: 1,
-      height: 20,
-      color: CommonColor.blackPdf.withOpacity(0.5));
+      color: CommonColor.white);
 
   /// Horizontal Divider
   static const spacer12 = SizedBox(height: 12, width: 12,);

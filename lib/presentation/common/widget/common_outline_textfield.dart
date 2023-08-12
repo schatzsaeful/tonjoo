@@ -81,7 +81,7 @@ class CommonOutlineTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: outlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.purple),
+          borderSide: const BorderSide(color: CommonColor.orange),
           borderRadius: BorderRadius.circular(8),
         ),
         errorBorder: errorOutlineInputBorder ?? OutlineInputBorder(
@@ -103,7 +103,7 @@ class CommonOutlineTextField extends StatelessWidget {
                       prefix.orEmpty(),
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: CommonColor.softPurple,
+                        color: CommonColor.orange,
                       ),
                     ),
                     Container(
@@ -138,11 +138,11 @@ class CommonOutlineTextField extends StatelessWidget {
         );
       } else if (states.contains(MaterialState.focused)) {
         return TextStyle(
-          color: floatingLabelColor ?? CommonColor.purple,
+          color: floatingLabelColor ?? CommonColor.orange,
         );
       } else {
         return TextStyle(
-          color: floatingLabelColor ?? CommonColor.darkPurple10,
+          color: floatingLabelColor ?? CommonColor.orange,
         );
       }
     });

@@ -12,7 +12,7 @@ class CommonButtonPrimary extends StatelessWidget {
     this.fontWeight = FontWeight.bold,
     this.fontSize = 22,
     this.paddingVertical = 16,
-    this.color = CommonColor.purple
+    this.color = CommonColor.orange
   }) : super(key: key);
 
   final VoidCallback onPressed;

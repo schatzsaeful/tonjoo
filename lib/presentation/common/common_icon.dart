@@ -12,7 +12,7 @@ class CommonIcon {
   );
   static SvgPicture activeHome = defaultSizeAssets(
       'ic_home_active.svg',
-      color: CommonColor.purple
+      color: CommonColor.orange
   );
   static SvgPicture add = defaultSizeAssets(
       'ic_add.svg',
@@ -20,7 +20,7 @@ class CommonIcon {
   );
   static SvgPicture activeAdd = defaultSizeAssets(
       'ic_add.svg',
-      color: CommonColor.purple
+      color: CommonColor.orange
   );
   static SvgPicture logout = defaultSizeAssets(
       'ic_logout.svg',
@@ -28,7 +28,7 @@ class CommonIcon {
   );
   static SvgPicture activeLogout = defaultSizeAssets(
       'ic_logout.svg',
-      color: CommonColor.purple
+      color: CommonColor.orange
   );
 
   static SvgPicture defaultSizeAssets(

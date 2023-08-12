@@ -62,7 +62,7 @@ class MainNotesList extends StatelessWidget {
                         children: [
                           Expanded(
                               child: Container(
-                                color: CommonColor.purple90,
+                                color: CommonColor.white,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,7 +72,7 @@ class MainNotesList extends StatelessWidget {
                                       child: Text(
                                         data[index],
                                         style: const TextStyle(
-                                          color: CommonColor.purple,
+                                          color: CommonColor.orange,
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -83,7 +83,7 @@ class MainNotesList extends StatelessWidget {
                                       child: Text(
                                         data[index],
                                         style: const TextStyle(
-                                          color: CommonColor.purple30,
+                                          color: CommonColor.white,
                                           fontSize: 12,
                                           fontWeight: FontWeight.normal,
                                         ),

@@ -59,7 +59,7 @@ class CommonPasswordTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.purple),
+          borderSide: const BorderSide(color: CommonColor.orange),
           borderRadius: BorderRadius.circular(8),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
@@ -91,11 +91,11 @@ class CommonPasswordTextField extends StatelessWidget {
         );
       } else if (states.contains(MaterialState.focused)) {
         return const TextStyle(
-          color: CommonColor.purple,
+          color: CommonColor.orange,
         );
       } else {
         return const TextStyle(
-          color: CommonColor.darkPurple10,
+          color: CommonColor.orange,
         );
       }
     });

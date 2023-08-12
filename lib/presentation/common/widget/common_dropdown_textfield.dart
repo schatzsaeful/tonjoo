@@ -57,7 +57,7 @@ class CommonDropdownTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.blue),
+          borderSide: const BorderSide(color: CommonColor.orange),
           borderRadius: BorderRadius.circular(8),
         ),
         contentPadding: const EdgeInsets.only(left: 16, right: 8),
@@ -91,11 +91,11 @@ class CommonDropdownTextField extends StatelessWidget {
     return MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.focused)) {
         return const TextStyle(
-          color: CommonColor.blue,
+          color: CommonColor.orange,
         );
       } else {
         return const TextStyle(
-          color: CommonColor.darkBlue,
+          color: CommonColor.orange,
         );
       }
     });

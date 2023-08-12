@@ -17,7 +17,7 @@ class MainHomePage extends GetView<MainHomeController> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: CommonColor.purple90,
+      backgroundColor: CommonColor.white,
       body: SmartRefresher(
         controller: refreshController,
         onRefresh: () {
@@ -35,7 +35,7 @@ class MainHomePage extends GetView<MainHomeController> {
           slivers: [
             SliverAppBar(
               automaticallyImplyLeading: false,
-              backgroundColor: CommonColor.purple90,
+              backgroundColor: CommonColor.white,
               leadingWidth: 0,
               elevation: 5,
               foregroundColor: Colors.transparent,
@@ -45,7 +45,7 @@ class MainHomePage extends GetView<MainHomeController> {
               title: Text(
                 AppTranslation.textAgentsList.tr,
                 style: const TextStyle(
-                  color: CommonColor.purple,
+                  color: CommonColor.orange,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),

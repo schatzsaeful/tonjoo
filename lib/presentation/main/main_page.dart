@@ -42,7 +42,7 @@ class MainPage extends GetView<MainController> {
                 ),
               ],
               currentIndex: controller.pageIndex.value,
-              selectedItemColor: CommonColor.purple,
+              selectedItemColor: CommonColor.orange,
               unselectedItemColor: CommonColor.darkGrey,
               showUnselectedLabels: false,
               type: BottomNavigationBarType.fixed,

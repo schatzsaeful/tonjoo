@@ -26,40 +26,6 @@ class MainAddNotesController extends BaseController {
   void onInit() {
     super.onInit();
 
-    _loadData();
   }
 
-  void _loadData() {
-    hasRetry = false;
-
-    _getToDoList();
-
-  }
-
-  void onRefresh() async {
-    _loadData();
-  }
-
-  void _getToDoList() {
-    unitListAsync.value = Async.loading();
-
-    var result = _getTodoListUseCase.execute();
-
-    result.fold((CommonError error) {
-      handleError(
-        error,
-        callback: () {
-          if (error.errorType == CommonErrorType.unauthorizedException &&
-              !hasRetry) {
-            _getToDoList();
-            hasRetry = true;
-          } else {
-            unitListAsync.value = Async.error(error);
-          }
-        },
-      );
-    }, (data) {
-      unitListAsync.value = Async.success(data);
-    });
-  }
 }

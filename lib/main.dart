@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:tonjoo/presentation/auth/auth_login_binding.dart';
+import 'package:tonjoo/presentation/auth/auth_login_page.dart';
+import 'package:tonjoo/presentation/main/add_notes/main_add_notes_binding.dart';
+import 'package:tonjoo/presentation/main/add_notes/main_add_notes_page.dart';
+import 'package:tonjoo/presentation/main/home/main_home_binding.dart';
+import 'package:tonjoo/presentation/main/home/main_home_page.dart';
 import 'package:tonjoo/presentation/main/main_binding.dart';
 import 'package:tonjoo/presentation/main/main_page.dart';
 
@@ -38,7 +44,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Tonjoo',
-      initialRoute: MainPage.name,
+      initialRoute: AuthLoginPage.name,
       initialBinding: AppBinding(),
       debugShowCheckedModeBanner: false,
       translations: AppTranslation(),
@@ -49,6 +55,21 @@ class MyApp extends StatelessWidget {
           name: MainPage.name,
           page: () => const MainPage(),
           binding: MainBinding(),
+        ),
+        GetPage(
+          name: MainHomePage.name,
+          page: () => const MainHomePage(),
+          binding: MainHomeBinding(),
+        ),
+        GetPage(
+          name: MainAddNotesPage.name,
+          page: () => const MainAddNotesPage(),
+          binding: MainAddNotesBinding(),
+        ),
+        GetPage(
+          name: AuthLoginPage.name,
+          page: () => const AuthLoginPage(),
+          binding: AuthLoginBinding(),
         ),
       ],
     );
