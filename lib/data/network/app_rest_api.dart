@@ -1,20 +1,21 @@
 import 'package:dio/dio.dart';
-import 'package:tonjoo/data/network/services/example_service.dart';
+import 'package:tonjoo/data/network/services/tonjoo_service.dart';
 
 import '../../utils/date_time_helper.dart';
 
 class AppRestApi {
 
-  ExampleService getExampleService() {
+  TonjooService getExampleService() {
     var option = BaseOptions(
-      baseUrl: 'https://jsonplaceholder.typicode.com/',
+      baseUrl: 'https://test-android.tongkolspace.com',
+      headers: {"Content-Type": "application/json"},
       connectTimeout: DateTimeHelper.fifteenSeconds,
       sendTimeout: DateTimeHelper.fifteenSeconds,
       receiveTimeout: DateTimeHelper.fifteenSeconds,
     );
 
-    var exampleDio = Dio(option);
+    var tonjooDio = Dio(option);
 
-    return ExampleService(exampleDio);
+    return TonjooService(tonjooDio);
   }
 }

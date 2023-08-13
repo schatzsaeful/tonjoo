@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tonjoo/presentation/main/main_page.dart';
 
 import '../../../data/local/prefs/app_preferences.dart';
-import '../../../domain/usecases/example/get_todo_list_usecase.dart';
 import '../../../utils/async_wrapper.dart';
 import '../base/base_controller.dart';
 import 'auth_login_page.dart';
 
 class AuthLoginController extends BaseController {
-  late final GetTodoListUseCase _getTodoListUseCase;
 
   AuthLoginController(
       AppPreferences pref,
-      this._getTodoListUseCase
       ) : super(pref, AuthLoginPage.name);
 
   final scrollController = ScrollController();
@@ -30,6 +28,8 @@ class AuthLoginController extends BaseController {
 
   void onLogin() {
     showLoadingDialog();
+
+    Get.toNamed(MainPage.name);
 
     // var result = _authLoginUseCase.execute(
     //   username: usernameEditing.text,

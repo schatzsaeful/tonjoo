@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:tonjoo/app_translation.dart';
+import 'package:tonjoo/domain/models/tonjoo/tonjoo_dto.dart';
 
 import '../../common/common_color.dart';
 import 'main_home_controller.dart';
+import 'main_home_widget.dart';
 
 class MainHomePage extends GetView<MainHomeController> {
   static const name = '/home';
@@ -35,19 +37,27 @@ class MainHomePage extends GetView<MainHomeController> {
           slivers: [
             SliverAppBar(
               automaticallyImplyLeading: false,
-              backgroundColor: CommonColor.white,
-              leadingWidth: 0,
+              backgroundColor: CommonColor.orange,
               elevation: 5,
               foregroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
               surfaceTintColor: Colors.transparent,
-              centerTitle: true,
               title: Text(
-                AppTranslation.textAgentsList.tr,
+                AppTranslation.textListUser.tr,
                 style: const TextStyle(
-                  color: CommonColor.orange,
-                  fontSize: 28,
+                  color: CommonColor.white,
+                  fontSize: 21,
                   fontWeight: FontWeight.bold,
+                ),
+              ),
+              leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                splashRadius: 24,
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: CommonColor.white,
                 ),
               ),
               floating: false,
@@ -56,6 +66,21 @@ class MainHomePage extends GetView<MainHomeController> {
               primary: true,
               forceElevated: false,
             ),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  Obx(() =>
+                      MainNotesList(
+                        async: controller.userListAsync.value,
+                        itemClickListener: (UserDto data) {
+
+                        },
+                        onRetry: () {},
+                      ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

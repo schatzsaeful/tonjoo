@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'common_color.dart';
-import 'common_decoration.dart';
 
 class CommonWidget {
   /// Vertical Divider

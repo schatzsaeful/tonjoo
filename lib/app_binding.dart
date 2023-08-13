@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
+import 'package:tonjoo/domain/usecases/tonjoo/get_user_list_usecase.dart';
 
 import 'data/local/prefs/app_preferences.dart';
 import 'data/network/app_rest_api.dart';
-import 'data/repositories/example_repository.dart';
-import 'data/repositories/example_repository_impl.dart';
-import 'domain/usecases/example/get_todo_list_usecase.dart';
+import 'data/repositories/tonjoo_repository.dart';
+import 'data/repositories/tonjoo_repository_impl.dart';
 
 class AppBinding extends Bindings {
   @override
@@ -33,11 +33,11 @@ class AppBinding extends Bindings {
 
   void _registerRepositories() {
     /// Register any repositories here
-    Get.put<ExampleRepository>(ExampleRepositoryImpl(Get.find()));
+    Get.put<TonjooRepository>(TonjooRepositoryImpl(Get.find()));
   }
 
   void _registerUseCases() {
     /// Register any usecases here
-    Get.put(GetTodoListUseCase(Get.find()));
+    Get.put(GetUserListUseCase(Get.find()));
   }
 }

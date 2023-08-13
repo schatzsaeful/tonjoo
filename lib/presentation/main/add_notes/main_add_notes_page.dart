@@ -20,19 +20,27 @@ class MainAddNotesPage extends GetView<MainAddNotesController> {
         slivers: [
           SliverAppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: CommonColor.white,
-            leadingWidth: 0,
+            backgroundColor: CommonColor.orange,
             elevation: 5,
             foregroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             surfaceTintColor: Colors.transparent,
-            centerTitle: true,
             title: Text(
-              AppTranslation.textAddAgent.tr,
+              AppTranslation.textCreateUser.tr,
               style: const TextStyle(
-                color: CommonColor.orange,
-                fontSize: 28,
+                color: CommonColor.white,
+                fontSize: 21,
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+            leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              splashRadius: 24,
+              icon: const Icon(
+                Icons.arrow_back,
+                color: CommonColor.white,
               ),
             ),
             floating: false,
