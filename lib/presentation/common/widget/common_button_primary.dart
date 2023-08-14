@@ -10,7 +10,7 @@ class CommonButtonPrimary extends StatelessWidget {
     required this.text,
     this.isEnable = true,
     this.fontWeight = FontWeight.bold,
-    this.fontSize = 22,
+    this.fontSize = 16,
     this.paddingVertical = 16,
     this.color = CommonColor.orange
   }) : super(key: key);

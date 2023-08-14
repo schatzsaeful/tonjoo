@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:tonjoo/app_translation.dart';
-import 'package:tonjoo/domain/models/tonjoo/tonjoo_dto.dart';
 
+import '../../../domain/models/tonjoo/user_dto.dart';
 import '../../common/common_color.dart';
 import 'main_home_controller.dart';
 import 'main_home_widget.dart';

@@ -19,6 +19,7 @@ class AppTranslation extends Translations {
   static const textErrorEmpty = 'text_error_empty';
   static const textAddAgent = 'text_add_agent';
   static const textAgentsList = 'text_agents_list';
+  static const textGender = 'text_gender';
 
   @override
   Map<String, Map<String, String>> get keys => {
@@ -41,6 +42,7 @@ class AppTranslation extends Translations {
       textErrorEmpty: '@fieldName harus diisi',
       textAddAgent: 'Add Agent',
       textAgentsList: 'Agents List',
+      textGender: 'Gender',
     }
   };
 }

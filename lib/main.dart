@@ -23,8 +23,8 @@ void main() async {
     statusBarBrightness: Brightness.light,
   ));
 
-  WidgetsFlutterBinding.ensureInitialized();
   await AppDatabase.initAppDatabase();
+  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init(AppConstant.storageKey);
   await initializeDateFormatting('id_ID', null);
 

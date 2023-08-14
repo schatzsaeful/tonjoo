@@ -45,19 +45,19 @@ class CommonDropdownTextField extends StatelessWidget {
         errorText: errorText,
         floatingLabelStyle: _floatingLabelStyle(),
         errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.red),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.orange),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         contentPadding: const EdgeInsets.only(left: 16, right: 8),
@@ -91,11 +91,11 @@ class CommonDropdownTextField extends StatelessWidget {
     return MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.focused)) {
         return const TextStyle(
-          color: CommonColor.orange,
+          color: Colors.transparent,
         );
       } else {
         return const TextStyle(
-          color: CommonColor.orange,
+          color: Colors.transparent,
         );
       }
     });

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tonjoo/utils/nullable_extension.dart';
 import 'package:tonjoo/utils/value_extension.dart';
 
 import '../../../app_translation.dart';
@@ -21,6 +20,7 @@ class CommonPasswordTextField extends StatelessWidget {
     this.isRequired = false,
     this.addAsterisk = false,
     this.validators = const <CommonFormValidateType>[],
+    this.icon
   }) : super(key: key);
 
   final TextEditingController textEditingController;
@@ -33,11 +33,12 @@ class CommonPasswordTextField extends StatelessWidget {
   final bool isRequired;
   final bool addAsterisk;
   final List<CommonFormValidateType> validators;
+  final Icon? icon;
 
   @override
   Widget build(BuildContext context) {
     var newHint = addAsterisk ? '$hint*' : hint;
-    var newLabel = addAsterisk && label != null ? '$label*' : label;
+    var newLabel = addAsterisk ? '$label*' : label;
 
     return TextFormField(
       decoration: InputDecoration(
@@ -50,19 +51,23 @@ class CommonPasswordTextField extends StatelessWidget {
         errorText: errorText.nullIfEmpty(),
         errorMaxLines: 2,
         floatingLabelStyle: _floatingLabelStyle(),
+        icon: icon,
+        iconColor: CommonColor.darkGrey,
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.orange),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 12,
+        ),
         suffixIcon: isPasswordShown
             ? IconButton(
                 onPressed: () => toggleListener(false),
@@ -87,15 +92,15 @@ class CommonPasswordTextField extends StatelessWidget {
     return MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.error)) {
         return const TextStyle(
-          color: CommonColor.red,
+          color: Colors.transparent
         );
       } else if (states.contains(MaterialState.focused)) {
         return const TextStyle(
-          color: CommonColor.orange,
+          color: Colors.transparent
         );
       } else {
         return const TextStyle(
-          color: CommonColor.orange,
+          color: Colors.transparent
         );
       }
     });
@@ -105,22 +110,10 @@ class CommonPasswordTextField extends StatelessWidget {
     var isRequired = validators.contains(
       CommonFormValidateType.noEmpty,
     );
-    var validateEmail = validators.contains(
-      CommonFormValidateType.email,
-    );
-    var validateNik = validators.contains(
-      CommonFormValidateType.min16character,
-    );
-    var validateYear = validators.contains(
-      CommonFormValidateType.min4Character,
-    );
-    var validateAlphabetOnly = validators.contains(
-      CommonFormValidateType.alphabetOnly,
-    );
 
     if (isRequired && (value == null || value.isEmpty)) {
       return AppTranslation.textErrorEmpty.trParams({
-        'fieldName': label ?? hint,
+        'fieldName': label,
       });
     }
 

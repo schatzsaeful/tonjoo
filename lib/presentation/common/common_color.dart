@@ -11,7 +11,7 @@ class CommonColor {
   static const grey = Color(0xFFA1A4B2);
   static const softGrey = Color(0xFFCACACA);
   static const whiteGrey = Color(0xFFDEE2E7);
-  static const softerGrey = Color(0xFFD9D9D9);
+  static const softerGrey = Color(0xFFf8f8f8);
   static const semiGrey = Color(0xFFF2F3F7);
   static const orange = Color(0xFFf4543c);
   static const red = Color(0xFFEF3340);

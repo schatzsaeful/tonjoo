@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tonjoo/utils/nullable_extension.dart';
 
-import '../../../domain/models/tonjoo/tonjoo_dto.dart';
+import '../../../domain/models/tonjoo/user_dto.dart';
 import '../../../utils/async_wrapper.dart';
 import '../../common/common_color.dart';
 import '../../common/common_decoration.dart';

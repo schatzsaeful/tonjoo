@@ -3,7 +3,7 @@ import 'package:either_dart/either.dart';
 import '../../../data/repositories/tonjoo_repository.dart';
 import '../../mapper/tonjoo_mapper.dart';
 import '../../models/common/common_error.dart';
-import '../../models/tonjoo/tonjoo_dto.dart';
+import '../../models/tonjoo/user_dto.dart';
 
 class GetUserListUseCase {
   final TonjooRepository _repository;
@@ -11,8 +11,9 @@ class GetUserListUseCase {
   GetUserListUseCase(this._repository);
 
   Future<Either<CommonError, List<UserDto>>> execute() {
+    print("afsdqrwe123: GetUserListUseCase");
     return _repository.getUserList().mapRight(
-          (responses) => UserMapper.transformToTodoListDto(responses),
+          (responses) => UserMapper.transformToUserListDto(responses),
         );
   }
 }

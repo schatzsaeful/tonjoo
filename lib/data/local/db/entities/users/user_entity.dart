@@ -3,47 +3,31 @@ import 'package:hive/hive.dart';
 part 'user_entity.g.dart';
 
 @HiveType(typeId: 1)
-class UserEntity {
+class UserEntity extends HiveObject {
   @HiveField(0)
-  int? id;
+  String? id;
 
   @HiveField(1)
-  String? createAt;
+  String? username;
 
   @HiveField(2)
-  String? role;
+  String? lastName;
 
   @HiveField(3)
-  String? emailAddress;
+  String? email;
 
   @HiveField(4)
-  String? parentName;
+  String? gender;
 
   @HiveField(5)
-  String? studentName;
-
-  @HiveField(6)
-  String? studentPlaceOfBirth;
-
-  @HiveField(7)
-  String? studentDateOfBirth;
-
-  @HiveField(8)
-  String? password;
-
-  @HiveField(9)
-  String? learningProgram;
+  String? avatar;
 
   UserEntity({
     this.id,
-    this.createAt,
-    this.role,
-    this.emailAddress,
-    this.parentName,
-    this.studentName,
-    this.studentPlaceOfBirth,
-    this.studentDateOfBirth,
-    this.password,
-    this.learningProgram,
+    this.username,
+    this.lastName,
+    this.email,
+    this.gender,
+    this.avatar,
   });
 }

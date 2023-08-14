@@ -1,20 +1,20 @@
 import '../entities/users/user_entity.dart';
 import 'base_dao.dart';
 
-class UserDao extends BaseDao<UserEntity> {
-  static const String name = 'box_users';
-  static const String _keyUser = 'user';
+class UserDao extends BaseDao<List<UserEntity> > {
+  static const String name = 'box_users_list';
+  static const String _keyUser = 'user_list';
 
   @override
   String boxName() {
     return name;
   }
 
-  Future<UserEntity?> getUser() async {
+  Future<List<UserEntity>?> getUserList() async {
     return await getValue(_keyUser);
   }
 
-  Future<void> saveUser(UserEntity entity) async {
+  Future<void> saveUserList(List<UserEntity> entity) async {
     await setValue(_keyUser, entity);
   }
 }

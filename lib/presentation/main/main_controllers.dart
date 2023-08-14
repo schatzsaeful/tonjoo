@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tonjoo/app_translation.dart';
+import 'package:tonjoo/presentation/auth/auth_login_page.dart';
 import 'package:tonjoo/presentation/main/add_notes/main_add_notes_page.dart';
 
 import '../../data/local/prefs/app_preferences.dart';
@@ -66,12 +67,16 @@ class MainController extends BaseController {
   }
 
   void changePage(int selectedIndex) {
-    pageIndex.value = selectedIndex;
-    Get.offNamed(
-      pages[selectedIndex],
-      id: getNavigatorId(),
-      arguments: args,
-    );
+    if (selectedIndex > 1) {
+      Get.offAllNamed(AuthLoginPage.name);
+    } else {
+      pageIndex.value = selectedIndex;
+      Get.offNamed(
+        pages[selectedIndex],
+        id: getNavigatorId(),
+        arguments: args,
+      );
+    }
   }
 
   Future<bool> onBackPressed() async {

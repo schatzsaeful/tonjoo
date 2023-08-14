@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:tonjoo/utils/nullable_extension.dart';
-import 'package:tonjoo/utils/value_extension.dart';
+import 'package:tonjoo/presentation/common/common_color.dart';
 
 import '../../../app_translation.dart';
 import '../../../domain/models/enums/common_form_validate_type.dart';
-import '../common_color.dart';
 
 class CommonOutlineTextField extends StatelessWidget {
   const CommonOutlineTextField({
@@ -23,13 +21,12 @@ class CommonOutlineTextField extends StatelessWidget {
     this.readOnly = false,
     this.prefix,
     this.maxLength,
-    this.isEnable,
-    this.floatingLabelColor,
     this.onChanged,
     this.outlineInputBorder,
     this.errorOutlineInputBorder,
     this.validators = const <CommonFormValidateType>[],
-    this.onTap
+    this.onTap,
+    this.icon
   }) : super(key: key);
 
   final TextEditingController textEditingController;
@@ -44,13 +41,12 @@ class CommonOutlineTextField extends StatelessWidget {
   final int minLine;
   final bool addAsterisk;
   final bool readOnly;
-  final bool? isEnable;
-  final Color? floatingLabelColor;
   final Function(String)? onChanged;
   final OutlineInputBorder? outlineInputBorder;
   final OutlineInputBorder? errorOutlineInputBorder;
   final List<CommonFormValidateType> validators;
   final VoidCallback? onTap;
+  final Icon? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -68,54 +64,31 @@ class CommonOutlineTextField extends StatelessWidget {
         hintText: newHint,
         labelText: newLabel,
         floatingLabelStyle: _floatingLabelStyle(),
+        icon: icon,
+        iconColor: CommonColor.darkGrey,
         border: outlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         enabledBorder: outlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         disabledBorder: outlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.grey),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: outlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.orange),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         errorBorder: errorOutlineInputBorder ?? OutlineInputBorder(
-          borderSide: const BorderSide(color: CommonColor.red),
+          borderSide: const BorderSide(color: Colors.transparent),
           borderRadius: BorderRadius.circular(8),
         ),
         contentPadding: contentPadding ?? const EdgeInsets.symmetric(
-          horizontal: 16,
           vertical: 12,
         ),
-        prefix: prefix != null
-            ? Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      prefix.orEmpty(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: CommonColor.orange,
-                      ),
-                    ),
-                    Container(
-                      height: 24,
-                      width: 1,
-                      margin: const EdgeInsets.only(left: 4),
-                      color: CommonColor.aqua,
-                    )
-                  ],
-                ),
-              )
-            : null,
         counterText: "",
       ),
       controller: textEditingController,
@@ -126,7 +99,6 @@ class CommonOutlineTextField extends StatelessWidget {
       minLines: minLine,
       maxLines: null,
       validator: _handleValidator,
-      enabled: isEnable ?? true,
     );
   }
 
@@ -134,15 +106,15 @@ class CommonOutlineTextField extends StatelessWidget {
     return MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.error)) {
         return const TextStyle(
-          color: CommonColor.red,
+          color: Colors.transparent,
         );
       } else if (states.contains(MaterialState.focused)) {
-        return TextStyle(
-          color: floatingLabelColor ?? CommonColor.orange,
+        return const TextStyle(
+          color: Colors.transparent,
         );
       } else {
-        return TextStyle(
-          color: floatingLabelColor ?? CommonColor.orange,
+        return const TextStyle(
+          color: Colors.transparent,
         );
       }
     });
@@ -151,18 +123,6 @@ class CommonOutlineTextField extends StatelessWidget {
   String? _handleValidator(String? value) {
     var isRequired = validators.contains(
       CommonFormValidateType.noEmpty,
-    );
-    var validateEmail = validators.contains(
-      CommonFormValidateType.email,
-    );
-    var validateNik = validators.contains(
-      CommonFormValidateType.min16character,
-    );
-    var validateYear = validators.contains(
-      CommonFormValidateType.min4Character,
-    );
-    var validateAlphabetOnly = validators.contains(
-      CommonFormValidateType.alphabetOnly,
     );
 
     if (isRequired && (value == null || value.isEmpty)) {
