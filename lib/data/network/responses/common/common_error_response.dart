@@ -17,22 +17,8 @@ class CommonErrorResponse {
 class CommonErrorMessage {
   @JsonKey(name: 'message')
   String? message;
-  @JsonKey(name: 'detail')
-  DetailErrorMessage? detailErrorMessage;
-  CommonErrorMessage({this.message,this.detailErrorMessage});
+  CommonErrorMessage({this.message});
 
   factory CommonErrorMessage.fromJson(Map<String, dynamic> json) =>
       _$CommonErrorMessageFromJson(json);
-}
-
-@JsonSerializable()
-class DetailErrorMessage{
-  @JsonKey(name: 'price')
-  String? price;
-  @JsonKey(name: 'date')
-  String? date;
-  DetailErrorMessage({this.price,this.date});
-
-  factory DetailErrorMessage.fromJson(Map<String, dynamic> json) =>
-      _$DetailErrorMessageFromJson(json);
 }

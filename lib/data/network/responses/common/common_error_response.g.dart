@@ -22,25 +22,9 @@ Map<String, dynamic> _$CommonErrorResponseToJson(
 CommonErrorMessage _$CommonErrorMessageFromJson(Map<String, dynamic> json) =>
     CommonErrorMessage(
       message: json['message'] as String?,
-      detailErrorMessage: json['detail'] == null
-          ? null
-          : DetailErrorMessage.fromJson(json['detail'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CommonErrorMessageToJson(CommonErrorMessage instance) =>
     <String, dynamic>{
       'message': instance.message,
-      'detail': instance.detailErrorMessage,
-    };
-
-DetailErrorMessage _$DetailErrorMessageFromJson(Map<String, dynamic> json) =>
-    DetailErrorMessage(
-      price: json['price'] as String?,
-      date: json['date'] as String?,
-    );
-
-Map<String, dynamic> _$DetailErrorMessageToJson(DetailErrorMessage instance) =>
-    <String, dynamic>{
-      'price': instance.price,
-      'date': instance.date,
     };

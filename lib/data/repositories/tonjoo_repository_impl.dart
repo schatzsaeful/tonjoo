@@ -5,7 +5,9 @@ import '../../utils/future_util.dart';
 import '../../domain/models/common/common_error.dart';
 import '../local/db/daos/user_dao.dart';
 import '../local/db/entities/users/user_entity.dart';
-import '../network/responses/tonjoo/user_response.dart';
+import '../network/requests/auth_request.dart';
+import '../network/responses/auth/auth_response.dart';
+import '../network/responses/user/user_response.dart';
 import '../network/services/tonjoo_service.dart';
 
 class TonjooRepositoryImpl extends TonjooRepository {
@@ -18,6 +20,12 @@ class TonjooRepositoryImpl extends TonjooRepository {
   Future<Either<CommonError, List<UserResponse>>> getUserList() =>
       callOrError(() {
         return _service.getUserList();
+      });
+
+  @override
+  Future<Either<CommonError, AuthResponse>> postLogin(AuthRequest request) =>
+      callOrError(() {
+        return _service.postLogin(request);
       });
 
   @override

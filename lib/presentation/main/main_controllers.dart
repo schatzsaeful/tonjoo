@@ -68,6 +68,8 @@ class MainController extends BaseController {
 
   void changePage(int selectedIndex) {
     if (selectedIndex > 1) {
+      onLogout();
+
       Get.offAllNamed(AuthLoginPage.name);
     } else {
       pageIndex.value = selectedIndex;

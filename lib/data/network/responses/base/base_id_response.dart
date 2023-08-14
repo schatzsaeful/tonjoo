@@ -2,12 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'base_id_response.g.dart';
 
-/// Base Id, response wrapper
-///
-/// {
-///   "id": <string>,
-///   "data": <T>
-/// }
 @JsonSerializable(genericArgumentFactories: true)
 class BaseIdResponse<T> {
   @JsonKey(name: 'id')

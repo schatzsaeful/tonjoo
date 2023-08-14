@@ -7,8 +7,8 @@ class MainHomeBinding extends Bindings {
   void dependencies() {
     Get.put(MainHomeController(
         Get.find(),
-        Get.find(),
-        Get.find(),
+        // Get.find(),
+        // Get.find(),
         Get.find()
     ));
   }

@@ -7,13 +7,13 @@ class AppPreferences {
   static StorageFactory get _factory => () => GetStorage(AppConstant.storageKey);
 
   /// Preferences Keys
-  static const String _keyUid = 'uid';
+  static const String _keyToken = 'token';
 
   /// Preferences
-  final ReadWriteValue<String> uid = ReadWriteValue(_keyUid, '', _factory);
+  final ReadWriteValue<String> token = ReadWriteValue(_keyToken, '', _factory);
 
   /// Stream Value
-  void listenUidChange(AppPreferenceListener callback) {
-    _factory().listenKey(_keyUid, callback);
+  void listenTokenChange(AppPreferenceListener callback) {
+    _factory().listenKey(_keyToken, callback);
   }
 }

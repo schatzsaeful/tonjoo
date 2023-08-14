@@ -1,6 +1,8 @@
 import 'package:tonjoo/data/local/db/entities/users/user_entity.dart';
+import 'package:tonjoo/data/network/responses/auth/auth_response.dart';
+import 'package:tonjoo/domain/models/tonjoo/auth_dto.dart';
 
-import '../../data/network/responses/tonjoo/user_response.dart';
+import '../../data/network/responses/user/user_response.dart';
 import '../models/tonjoo/user_dto.dart';
 
 class UserMapper {
@@ -17,6 +19,16 @@ class UserMapper {
           avatar: response.avatar ?? '',
         )
     ).toList();
+  }
+
+  static AuthDto transformToAuthDto(
+      AuthResponse response,
+      ) {
+    return AuthDto(
+      success: response.success ?? 0,
+      token: response.token ?? '',
+      userId: response.userId ?? 0,
+    );
   }
 
   static List<UserDto> transformToLocalUserListDto(

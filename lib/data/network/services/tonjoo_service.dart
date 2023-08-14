@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '../responses/tonjoo/user_response.dart';
+import '../requests/auth_request.dart';
+import '../responses/auth/auth_response.dart';
+import '../responses/user/user_response.dart';
 
 part 'tonjoo_service.g.dart';
 
@@ -11,4 +14,7 @@ abstract class TonjooService {
 
   @GET('/users')
   Future<List<UserResponse>> getUserList();
+
+  @POST('/login')
+  Future<AuthResponse> postLogin(@Body() AuthRequest request);
 }

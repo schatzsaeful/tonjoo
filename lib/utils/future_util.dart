@@ -32,8 +32,6 @@ Future<Either<CommonError, T>> callOrError<T>(
             try {
               var r = CommonErrorResponse.fromJson(e.response?.data);
               message = (r.errors?.message).orEmpty();
-              price = (r.errors?.detailErrorMessage?.price).orEmpty();
-              date = (r.errors?.detailErrorMessage?.date).orEmpty();
             } on Exception {
               message = 'Unknown Error';
             }

@@ -10,7 +10,7 @@ class AppDatabase {
 
     /// Open User boxes
     /// use <dynamic> if it used to store dynamic key value pairs
-    await Hive.openLazyBox<UserEntity>(UserDao.name);
+    await Hive.openLazyBox<List<UserEntity>>(UserDao.name);
   }
 
   static void _registerAdapters() {

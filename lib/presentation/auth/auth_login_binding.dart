@@ -5,6 +5,6 @@ import 'auth_login_controller.dart';
 class AuthLoginBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put(AuthLoginController(Get.find()));
+    Get.put(AuthLoginController(Get.find(), Get.find()));
   }
 }

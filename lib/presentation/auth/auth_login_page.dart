@@ -97,10 +97,13 @@ class AuthLoginPage extends GetView<AuthLoginController> {
                 Container(
                   margin: const EdgeInsets.only(top: 32),
                   width: double.infinity,
-                  child: CommonButtonPrimary(
-                    onPressed: controller.onLogin,
-                    text: AppTranslation.textLogin.tr,
-                  ),
+                  child: Obx(() =>
+                      CommonButtonPrimary(
+                        onPressed: controller.onLogin,
+                        text: AppTranslation.textLogin.tr,
+                        isEnable: controller.hasNetwork.value,
+                      ),
+                  )
                 ),
               ],
             ),

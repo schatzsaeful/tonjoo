@@ -8,20 +8,19 @@ import '../../../data/local/prefs/app_preferences.dart';
 import '../../../domain/models/common/common_error.dart';
 import '../../../domain/usecases/tonjoo/get_user_list_usecase.dart';
 import '../../../utils/async_wrapper.dart';
-import '../../../utils/widget_util.dart';
 import '../../base/base_controller.dart';
 import '../home/main_home_page.dart';
 
 class MainHomeController extends BaseController {
   late final GetUserListUseCase _getUserListUseCase;
-  late final GetLocalUserUseCase _getLocalUserUseCase;
-  late final SaveLocalUserUseCase _saveLocalUserUseCase;
+  // late final GetLocalUserUseCase _getLocalUserUseCase;
+  // late final SaveLocalUserUseCase _saveLocalUserUseCase;
 
   MainHomeController(
       AppPreferences pref,
       this._getUserListUseCase,
-      this._getLocalUserUseCase,
-      this._saveLocalUserUseCase
+      // this._getLocalUserUseCase,
+      // this._saveLocalUserUseCase
       ) : super(pref, MainHomePage.name);
 
   final scrollController = ScrollController();
@@ -46,7 +45,7 @@ class MainHomeController extends BaseController {
     result.fold((CommonError error) {
       getLocalUserList();
     }, (data) {
-      _saveLocalUserUseCase.execute(data);
+      // _saveLocalUserUseCase.execute(data);
 
       userListAsync.value = Async.success(data);
       getLocalUserList();
@@ -54,9 +53,9 @@ class MainHomeController extends BaseController {
   }
 
   void getLocalUserList() async {
-    var data = await _getLocalUserUseCase.execute();
+    // var data = await _getLocalUserUseCase.execute();
 
-    userListAsync.value = Async.success(data);
+    // userListAsync.value = Async.success(data);
   }
 
 }

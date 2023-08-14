@@ -28,7 +28,7 @@ abstract class BaseController extends GetxController {
   }
 
   void onLogout() {
-    appPreferences.uid.val = '';
+    appPreferences.token.val = '';
   }
 
   void showLoadingDialog() {

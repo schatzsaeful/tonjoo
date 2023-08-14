@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tonjoo/domain/usecases/tonjoo/get_local_list_user_usecase.dart';
 import 'package:tonjoo/domain/usecases/tonjoo/get_user_list_usecase.dart';
+import 'package:tonjoo/domain/usecases/tonjoo/post_login_usecase.dart';
 
 import 'data/local/db/daos/user_dao.dart';
 import 'data/local/prefs/app_preferences.dart';
@@ -42,7 +43,8 @@ class AppBinding extends Bindings {
   void _registerUseCases() {
     /// Register any usecases here
     Get.put(GetUserListUseCase(Get.find()));
-    Get.put(GetLocalUserUseCase(Get.find()));
-    Get.put(SaveLocalUserUseCase(Get.find()));
+    // Get.put(GetLocalUserUseCase(Get.find()));
+    // Get.put(SaveLocalUserUseCase(Get.find()));
+    Get.put(PostLoginUseCase(Get.find()));
   }
 }
